@@ -6,9 +6,6 @@ int main() {
     fio;
 int n,k;
 cin>>n>>k;
-if(n==1 && (k==3||k==4 || k==5))
-cout<<0<<endl;
-else
-cout<<k-(n*2)<<endl;
+cout<<max(0,3*n-k)<<endl;
     return 0;
 }
