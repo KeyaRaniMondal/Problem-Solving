@@ -7,17 +7,10 @@ int main() {
     int t;
     cin >> t;
     while (t--) {
-        long long n,s,sum=0;
-        vector<long long>v;
+        long long n,s;
         cin>>n>>s;
-        for(int i=1;i<=n;++i)
-        {
-            if(sum!=s){
-            sum+=i;
-            v.push
-            }
-        }       
+        int median=n/2+1;
+        cout<<s/median <<endl;     
     }
-
     return 0;
 }
