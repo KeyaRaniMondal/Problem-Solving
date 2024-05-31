@@ -8,37 +8,36 @@ int main()
 {
     fio;
     ll n, q;
-    cin >> n;
-   vector<queue<ll>>q(n);
-    cin >> q;
+    cin >> n >> q;
+    queue<pair<ll, ll>> qu;
     while (q--)
     {
-        ll p, x, t;
-        cin >> p >> t;
-        if (p == 0)
+        ll q1, t, x;
+        cin >> q1 >> t;
+        if (q1 == 0)
         {
             cin >> x;
-            q[t].push(x);
+            qu.push(make_pair(t, x));
         }
-        else if (p == 1)
+        else if (q1 == 1)
         {
-            for (int i = 0; i < q[t].size(); ++i)
+            while (!qu.empty())
             {
-                cout << q[t][i];
-                if (i != q[t].size() - 1)
-                {
-                    cout << " ";
-                }
+                pair<ll, ll> f = qu.front();
+                if (t == f.first)
+                    cout << f.second << endl;
             }
-            cout << endl;
+            qu.pop();
         }
-        else if (p == 2)
+        else if (q1 == 2)
         {
-            while (!q[t].empty())
+            while (!qu.empty())
             {
-                q[t].pop();
+                qu.pop();
             }
         }
     }
     return 0;
 }
+
+
