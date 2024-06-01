@@ -11,28 +11,27 @@ int main()
     cin >> t;
     while (t--)
     {
-    int t;
-    cin >> t;
- 
-    while (t--) {
-       ll n, h;
-        cin >> n >> h;
- 
-        vector<ll>v(n); 
-        for (int i = 0; i < n; i++) {
+        ll n, H;
+        cin >> n >> H;
+        vector<int> v(n);
+        for (int i = 0; i < n; ++i)
             cin >> v[i];
+        sort(v.begin(), v.end(), greater<ll>());
+        if (v[0] >= H)
+        {
+            cout << 1 << endl;
+            continue;
         }
- 
-        sort(v.begin(), v.end(), greater<ll>()); 
-if(v[0]<h)
-swap(v[0],h);
-ll count=(v[0]%h)-v[n-1];
-if(count==0)
-cout<<1<<endl;
-else
-cout<<count<<endl;
-        
-    }
+        ll count=H/(v[0]+v[1]);
+        H-=(v[0]+v[1])*count;
+        ll i=0;
+while(H>0)
+{
+    H-=v[i&1];
+    count++;
+        ++i;
+}
+        cout << count<< endl;
     }
     return 0;
 }

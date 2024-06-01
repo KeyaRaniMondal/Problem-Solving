@@ -11,20 +11,19 @@ int main()
   cin >> t;
   while (t--)
   {
-ll n,block=0,st_hight=0;
-cin>>n;
-for(int i=0;i<n;++i)
-{
-    ll b;
-    cin>>b;
-    st_hight+=b;
-    block+=i;
-}
-
-if(block<=st_hight)
-cout<<"YES"<<endl;
-else
-cout<<"NO"<<endl;
+    ll n, sum = 0, sum1 = 0;
+    cin >> n;
+    vector<int> v(n);
+    for (int i = 0; i < n; ++i)
+    {
+      cin >> v[i];
+      sum += v[i];
+      sum1 += i;
+    }
+    if (sum >= sum1)
+      cout << "YES" << endl;
+    else
+      cout << "NO" << endl;
   }
   return 0;
 }
