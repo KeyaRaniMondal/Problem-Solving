@@ -4,32 +4,24 @@ using namespace std;
     ios_base::sync_with_stdio(false); \
     cin.tie(NULL)
 #define ll long long
+bool cmp(pair<ll, ll> p1, pair<ll, ll> p2)
+{
+    return p1.second > p2.second;
+}
 int main()
 {
     fio;
     ll n;
     cin >> n;
-    vector<vector<ll> >v;
-    while (n--)
+    vector<pair<ll, ll>> v(n);
+    for (ll i = 0; i < n; ++i)
     {
-       ll id,m;
-       cin>>id>>m;
-       for(int i=0;i<n;++i)
-       v[id].push_back(m);
-       for(int i=1;i<n-1;++i)
-       {
-        for(int j=0;j<n-i-1;++j)
-        {
-            if(v[j]>v[j+1])
-            swap(v[j],v[j+1]);
-        }
-       }
-              for(int i=0;i<n;++i)
-       {
-        for(int j=0;j<n;++j)
-        cout<<v[i][j]<<" ";
-       }
-       cout<<endl;
+        cin >> v[i].first >> v[i].second;
+    }
+    sort(v.begin(), v.end(), cmp);
+    for (ll i = 0; i < n; ++i)
+    {
+        cout << v[i].first<<" " << v[i].second<<endl;
     }
     return 0;
 }
