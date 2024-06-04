@@ -91,7 +91,6 @@ int main()
     fio;
     ll n, q;
     cin >> n;
-    vector<queue<ll>> v(n);
     vector<queue<ll>> qu(n);
     cin >> q;
     while (q--)
@@ -108,12 +107,11 @@ int main()
             if (!qu[t].empty())
             {
                 cout << qu[t].front() << endl;
-                qu[t].pop();
             }
         }
         else if (p == 2)
         {
-            while (!qu[t].empty())
+            if(!qu[t].empty())
             {
                 qu[t].pop();
             }
