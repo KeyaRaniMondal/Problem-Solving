@@ -52,22 +52,28 @@ using namespace std;
 
 int main()
 {
-    ll t, o, e;
+    ll t, o=0, e=0;
     cin >> t;
     for (int i = 1; i <= t; ++i)
     {
         ll n, m;
         cin >> n >> m;
         if (n > m)
-            swap(n, m);
-        if ((m / 3) % 2 == 0)
-            o = (m / 3) * 2;
-        else
-            o = (m / 3) * 3;
-        if (m % 3 == 0)
-            e = m - o - 1;
-        else
-            e = m - o;
+            swap(m, n);
+        ll num = m - n + 1;
+        if ((n - 1) % 3 == 0)
+        {
+            e++;
+            n++;
+        }
+        if ((m - 1) % 3 == 0)
+        {
+            e++;
+            m--;
+        }
+        ll sum = m-n+1;
+        e+= sum / 3;
+        o= num - e;
         cout << "Case " << i << ":" << endl;
         cout << "Odd = " << o << endl
              << "Even = " << e << endl;
