@@ -30,3 +30,5 @@ int main()
         cout << power(b, p, m) << endl;
     }
 }
+
+
