@@ -4,17 +4,7 @@ using namespace std;
     ios_base::sync_with_stdio(false); \
     cin.tie(NULL)
 #define ll long long
-const ll MOD = 1e9 + 7;
-
-ll multiply(vector<int> &v)
-{
-    ll mult = 1;
-    for (int num : v)
-    {
-        mult = (mult * (num % MOD)) % MOD;
-    }
-    return mult;
-}
+const ll MOD = 1000000007;
 
 int main()
 {
@@ -23,15 +13,17 @@ int main()
     cin >> t;
     while (t--)
     {
-        ll n;
+        ll n, multiply = 1;
         cin >> n;
         vector<int> v(n);
         for (int i = 0; i < n; ++i)
         {
             cin >> v[i];
+            multiply = ((v[i] % MOD) * (multiply % MOD)) % MOD;
         }
-        ll res = multiply(v);
-        cout << res << endl;
+        cout << multiply << endl;
     }
     return 0;
 }
+
+
